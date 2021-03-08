@@ -1,10 +1,11 @@
-package com.example.sibala;
+package com.example.sibala.game;
 
+import com.example.sibala.game.Dice;
 import lombok.val;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
 
-import static com.example.sibala.DiceType.*;
+import static com.example.sibala.game.DiceType.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DiceTest {

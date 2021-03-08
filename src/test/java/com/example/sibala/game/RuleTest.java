@@ -1,12 +1,15 @@
-package com.example.sibala;
+package com.example.sibala.game;
 
+import com.example.sibala.game.Dice;
+import com.example.sibala.game.Player;
+import com.example.sibala.game.Rule;
 import lombok.val;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static com.example.sibala.WinType.TIE;
-import static com.example.sibala.WinType.WIN;
+import static com.example.sibala.game.WinType.TIE;
+import static com.example.sibala.game.WinType.WIN;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RuleTest {

@@ -1,4 +1,4 @@
-package com.example.sibala;
+package com.example.sibala.game;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -7,7 +7,7 @@ import lombok.val;
 import java.util.List;
 import java.util.function.Function;
 
-import static com.example.sibala.DiceType.*;
+import static com.example.sibala.game.DiceType.*;
 import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.groupingBy;
 

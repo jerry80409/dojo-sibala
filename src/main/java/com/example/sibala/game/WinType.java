@@ -1,7 +1,10 @@
-package com.example.sibala;
+package com.example.sibala.game;
 
 import lombok.Getter;
 
+/**
+ * 勝利類型
+ */
 enum WinType {
     TIE(0),
     WIN(1);

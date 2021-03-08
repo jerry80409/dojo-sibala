@@ -1,10 +1,13 @@
-package com.example.sibala;
+package com.example.sibala.game;
 
 import lombok.*;
 
 import static lombok.AccessLevel.PACKAGE;
 import static lombok.AccessLevel.PROTECTED;
 
+/**
+ * 勝利玩家
+ */
 @Getter
 @Setter
 @NoArgsConstructor(access = PACKAGE)

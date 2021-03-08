@@ -1,4 +1,4 @@
-package com.example.sibala;
+package com.example.sibala.game;
 
 import lombok.NonNull;
 import lombok.val;
@@ -8,15 +8,15 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.function.Function;
 
-import static com.example.sibala.DiceType.ALL_THE_SAME_KIND;
-import static com.example.sibala.DiceType.NORMAL_POINT;
-import static com.example.sibala.WinType.TIE;
-import static com.example.sibala.WinType.WIN;
+import static com.example.sibala.game.DiceType.ALL_THE_SAME_KIND;
+import static com.example.sibala.game.DiceType.NORMAL_POINT;
+import static com.example.sibala.game.WinType.TIE;
+import static com.example.sibala.game.WinType.WIN;
 import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.groupingBy;
 
 /**
- * 遊戲規則計算
+ * 遊戲規則
  */
 class Rule {
 

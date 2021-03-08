@@ -1,4 +1,4 @@
-package com.example.sibala;
+package com.example.sibala.game;
 
 import lombok.Getter;
 
