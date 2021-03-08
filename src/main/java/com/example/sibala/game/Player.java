@@ -23,6 +23,7 @@ class Player {
     /**
      * 骰子
      */
+    @NonNull
     private Dice dice;
 
 }

@@ -25,6 +25,16 @@ class Rule {
     /**
      * 計算分數
      *
+     * @param player
+     * @return
+     */
+    int calPoint(@NonNull Player player) {
+        return calPoint(player.getDice());
+    }
+
+    /**
+     * 計算分數
+     *
      * @param dice
      * @return
      */

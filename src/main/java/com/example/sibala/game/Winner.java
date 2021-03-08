@@ -2,6 +2,7 @@ package com.example.sibala.game;
 
 import lombok.*;
 
+import static com.example.sibala.game.WinType.WIN;
 import static lombok.AccessLevel.PACKAGE;
 import static lombok.AccessLevel.PROTECTED;
 
@@ -22,6 +23,7 @@ class Winner extends Player {
     /**
      * 贏的類型
      */
+    @NonNull
     private WinType winType;
 
     /**
@@ -35,5 +37,14 @@ class Winner extends Player {
         super(name, dice);
         this.point = point;
         this.winType = winType;
+    }
+
+    @Override
+    public String toString() {
+        if (WIN == winType) {
+            return String.format("%s Wins. %s: %d", getName(), getDice().getDiceType(), point);
+        } else {
+            return "Tie.";
+        }
     }
 }
