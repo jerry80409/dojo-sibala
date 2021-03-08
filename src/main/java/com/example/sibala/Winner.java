@@ -17,13 +17,20 @@ class Winner extends Player {
     private int point;
 
     /**
+     * 贏的類型
+     */
+    private WinType winType;
+
+    /**
      * constructor
      *
      * @param name
      * @param dice
      */
-    @Builder(builderMethodName = "winnerBuilder") Winner(String name, Dice dice, int point) {
+    @Builder(builderMethodName = "winnerBuilder")
+    Winner(String name, Dice dice, int point, WinType winType) {
         super(name, dice);
         this.point = point;
+        this.winType = winType;
     }
 }
