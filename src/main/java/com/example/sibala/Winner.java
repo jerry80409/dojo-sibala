@@ -2,14 +2,11 @@ package com.example.sibala;
 
 import lombok.*;
 
-import java.util.List;
-
 import static lombok.AccessLevel.PACKAGE;
 import static lombok.AccessLevel.PROTECTED;
 
 @Getter
 @Setter
-@Builder
 @NoArgsConstructor(access = PACKAGE)
 @AllArgsConstructor(access = PROTECTED)
 class Winner extends Player {
@@ -25,7 +22,8 @@ class Winner extends Player {
      * @param name
      * @param dice
      */
-    Winner(String name, List<Dice> dice) {
+    @Builder(builderMethodName = "winnerBuilder") Winner(String name, Dice dice, int point) {
         super(name, dice);
+        this.point = point;
     }
 }

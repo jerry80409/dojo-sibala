@@ -24,6 +24,6 @@ class Rule {
      * @return
      */
     Winner compareTo(List<Player> players) {
-        return new Winner(null, null);
+        return new Winner(null, null, 0);
     }
 }

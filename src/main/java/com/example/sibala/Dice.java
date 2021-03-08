@@ -1,46 +1,64 @@
 package com.example.sibala;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.val;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 
-import static lombok.AccessLevel.PROTECTED;
+import static com.example.sibala.DiceType.*;
+import static java.util.stream.Collectors.counting;
+import static java.util.stream.Collectors.groupingBy;
 
 /**
  * 骰子
  */
 @Getter
 @Setter
-@AllArgsConstructor(access = PROTECTED)
 class Dice {
 
-    private static final int DEFAULT_COUNT = 4;
+    private static final int ALL_THE_SAME = 1;
 
-    /**
-     * 骰子的數字
-     */
+    private final int diceCount;
+
     private final List<Integer> numbers;
-    /**
-     * 幾個骰子
-     */
-    private Integer count;
-
-    /**
-     * constructor
-     */
-    Dice() {
-        numbers = new ArrayList<>(DEFAULT_COUNT);
-    }
 
     /**
      * constructor
      *
-     * @param count
+     * @param numbers
      */
-    Dice(Integer count) {
-        numbers = new ArrayList<>(count);
+    Dice(List<Integer> numbers) {
+        this.numbers = numbers;
+        this.diceCount = numbers.size();
+    }
+
+    /**
+     * 依據骰子點數, 取得類型
+     *
+     * @return
+     */
+    DiceType getDiceType() {
+        val diceTypeMap = numbers.stream().collect(groupingBy(Function.identity(), counting()));
+        val diceTypeCount = diceTypeMap.size();
+
+        // 清一色
+        if (ALL_THE_SAME == diceTypeCount) {
+            return ALL_THE_SAME_KIND;
+        }
+
+        // 沒有點數 (1, 2, 3, 4)
+        if (diceCount == diceTypeCount) {
+            return NO_POINT;
+        }
+
+        // 沒有點數 (1, 1, 1, 2)
+        val threeTheSame = diceTypeMap.entrySet().stream().anyMatch(entry -> 3 == entry.getValue());
+        if (threeTheSame) {
+            return NO_POINT;
+        }
+
+        return NORMAL_POINT;
     }
 }
