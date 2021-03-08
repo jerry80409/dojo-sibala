@@ -40,21 +40,21 @@ class Dice {
      * @return
      */
     DiceType getDiceType() {
-        val diceTypeMap = numbers.stream().collect(groupingBy(Function.identity(), counting()));
-        val diceTypeCount = diceTypeMap.size();
+        val pointCountMap = numbers.stream().collect(groupingBy(Function.identity(), counting()));
+        val diffDiceTypeCount = pointCountMap.size();
 
         // 清一色
-        if (ALL_THE_SAME == diceTypeCount) {
+        if (ALL_THE_SAME == diffDiceTypeCount) {
             return ALL_THE_SAME_KIND;
         }
 
         // 沒有點數 (1, 2, 3, 4)
-        if (diceCount == diceTypeCount) {
+        if (diceCount == diffDiceTypeCount) {
             return NO_POINT;
         }
 
         // 沒有點數 (1, 1, 1, 2)
-        val threeTheSame = diceTypeMap.entrySet().stream().anyMatch(entry -> 3 == entry.getValue());
+        val threeTheSame = pointCountMap.entrySet().stream().anyMatch(entry -> 3 == entry.getValue());
         if (threeTheSame) {
             return NO_POINT;
         }
