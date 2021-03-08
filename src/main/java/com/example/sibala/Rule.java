@@ -10,6 +10,8 @@ import java.util.function.Function;
 
 import static com.example.sibala.DiceType.ALL_THE_SAME_KIND;
 import static com.example.sibala.DiceType.NORMAL_POINT;
+import static com.example.sibala.WinType.TIE;
+import static com.example.sibala.WinType.WIN;
 import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.groupingBy;
 
@@ -63,6 +65,41 @@ class Rule {
      * @return
      */
     Winner compareTo(List<Player> players) {
-        return new Winner(null, null, 0);
+        if (2 < players.size()) {
+            throw new RuntimeException("尚未處理 3 人以上的遊戲情境");
+        }
+
+        val firstPlayer = players.get(0);
+        val firstPlayerPoint = calPoint(firstPlayer.getDice());
+        val secondPlayer = players.get(1);
+        val secondPlayerPoint = calPoint(secondPlayer.getDice());
+
+        // first player win
+        if (firstPlayerPoint > secondPlayerPoint) {
+            return Winner.winnerBuilder()
+                .name(firstPlayer.getName())
+                .dice(firstPlayer.getDice())
+                .point(firstPlayerPoint)
+                .winType(WIN)
+                .build();
+        }
+
+        // second player win
+        if (firstPlayerPoint < secondPlayerPoint) {
+            return Winner.winnerBuilder()
+                .name(secondPlayer.getName())
+                .dice(secondPlayer.getDice())
+                .point(secondPlayerPoint)
+                .winType(WIN)
+                .build();
+        }
+
+        // balance
+        return Winner.winnerBuilder()
+            .name(null)
+            .dice(null)
+            .point(firstPlayerPoint)
+            .winType(TIE)
+            .build();
     }
 }
