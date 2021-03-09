@@ -2,6 +2,10 @@ package com.example.sibala.game;
 
 import lombok.*;
 
+import java.util.List;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toList;
 import static lombok.AccessLevel.PACKAGE;
 import static lombok.AccessLevel.PROTECTED;
 
@@ -11,6 +15,7 @@ import static lombok.AccessLevel.PROTECTED;
 @Getter
 @Setter
 @Builder
+@EqualsAndHashCode
 @NoArgsConstructor(access = PACKAGE)
 @AllArgsConstructor(access = PROTECTED)
 class Player {

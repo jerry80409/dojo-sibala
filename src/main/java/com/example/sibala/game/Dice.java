@@ -1,5 +1,6 @@
 package com.example.sibala.game;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.val;
@@ -16,6 +17,7 @@ import static java.util.stream.Collectors.groupingBy;
  */
 @Getter
 @Setter
+@EqualsAndHashCode
 class Dice {
 
     private static final int ALL_THE_SAME = 1;
