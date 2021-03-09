@@ -1,8 +1,9 @@
 package com.example.sibala.game;
 
 import lombok.val;
-import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 import static com.example.sibala.game.WinType.TIE;
 import static com.example.sibala.game.WinType.WIN;
@@ -14,7 +15,7 @@ class WinnerTest {
     void test_to_string_win() {
         val winner = Winner.winnerBuilder()
             .name("Amy")
-            .dice(new Dice(Lists.list(1, 1, 1, 1)))
+            .dice(new Dice(List.of(1, 1, 1, 1)))
             .winType(WIN)
             .point(1)
             .build();
@@ -25,7 +26,7 @@ class WinnerTest {
     void test_to_string_tie() {
         val winner = Winner.winnerBuilder()
             .name(null)
-            .dice(new Dice(Lists.list(1, 1, 1, 1)))
+            .dice(new Dice(List.of(1, 1, 1, 1)))
             .winType(TIE)
             .point(0)
             .build();
